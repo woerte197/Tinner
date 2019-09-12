@@ -1,0 +1,1 @@
+include ':app', ':tinner_lib', ':router_lib', ':webview_lib', ':compiler', ':annotations', ':pay_lib', ':share_lib', ':main_moudle', ':news_moudle', ':tinner_base_lib'
