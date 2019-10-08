@@ -42,11 +42,11 @@ private object RetrofitBuilderHolder {
 
     val HOST_URL = ConfigManager.getConfig().getConfig(ConfigType.HOST_URL)
     val RETROFIT: Retrofit = Retrofit.Builder()
-            .client(OkHttpClientHolder.OK_HTTP_CLIENT)
-            .baseUrl(HOST_URL as String)
-            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-            .addConverterFactory(ScalarsConverterFactory.create())
-            .build()
+        .client(OkHttpClientHolder.OK_HTTP_CLIENT)
+        .baseUrl(HOST_URL as String)
+        .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+        .addConverterFactory(ScalarsConverterFactory.create())
+        .build()
 
 }
 
@@ -56,12 +56,12 @@ private object OkHttpClientHolder {
     val BUILDER = OkHttpClient.Builder()
 
     val OK_HTTP_CLIENT: OkHttpClient = addInterceptor()
-            .connectTimeout(60, TimeUnit.SECONDS)
-            .writeTimeout(60, TimeUnit.SECONDS)
-            .readTimeout(60, TimeUnit.SECONDS)
-            .build()
+        .connectTimeout(60, TimeUnit.SECONDS)
+        .writeTimeout(60, TimeUnit.SECONDS)
+        .readTimeout(60, TimeUnit.SECONDS)
+        .build()
 
-    private fun addInterceptor(): OkHttpClient.Builder {
+    private fun addInterceptor(): OkHttpClient.Builder {Wwwww
         if (null != INTERCEPTOR_LIST) {
             for (interceptor in INTERCEPTOR_LIST as ArrayList<Interceptor>) {
                 BUILDER.addInterceptor(interceptor)

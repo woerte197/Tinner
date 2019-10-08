@@ -15,40 +15,6 @@ class BottomView @JvmOverloads constructor(
 
     init {
 
-//        val homeItem = BottomNavigationItem(
-//            R.drawable.select_home,
-//            "首页"
-//        ).setInactiveIconResource(R.drawable.home)
-//            .setActiveColorResource(R.color.app_main)
-//            .setInActiveColorResource(R.color.text_normal)
-//
-//        val newsItem = BottomNavigationItem(
-//            R.drawable.select_news,
-//            "资讯"
-//        ).setInactiveIconResource(R.drawable.news)
-//            .setActiveColorResource(R.color.app_main)
-//            .setInActiveColorResource(R.color.text_normal)
-//
-//        val sportItem = BottomNavigationItem(
-//            R.drawable.selece_sport,
-//            "运动"
-//        ).setInactiveIconResource(R.drawable.sport)
-//            .setActiveColorResource(R.color.app_main)
-//            .setInActiveColorResource(R.color.text_normal)
-//
-//        val mineItem = BottomNavigationItem(
-//            R.drawable.select_mine,
-//            "我的"
-//        ).setInactiveIconResource(R.drawable.mine)
-//            .setActiveColorResource(R.color.app_main)
-//            .setInActiveColorResource(R.color.text_normal)
-//        setMode(MODE_FIXED)
-//        setBarBackgroundColor(R.color.common_white)
-//        addItem(homeItem).addItem(newsItem).addItem(sportItem).addItem(mineItem).initialise()
-//        Integer.MAX_VALUE
-
-
-
         val homeItem = BottomNavigationItem(
             R.drawable.home,
             "首页"

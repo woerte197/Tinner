@@ -9,7 +9,7 @@ import java.util.*
 class MyClientBuilder {
     private var mUrl: String? = null
     private var mBody: RequestBody? = null
-    private var mParams: WeakHashMap<String, Any>? = null
+    private var mParams: WeakHashMap<String, Any> = WeakHashMap()
     private var mFile: File? = null
     private var mFiles: List<File>? = null
 
@@ -24,7 +24,7 @@ class MyClientBuilder {
     }
 
     fun addParams(params: WeakHashMap<String, Any>): MyClientBuilder {
-        mParams = params
+        mParams.putAll(params)
         return this
     }
 

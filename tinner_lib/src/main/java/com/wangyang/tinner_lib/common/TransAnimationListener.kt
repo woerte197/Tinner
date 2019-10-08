@@ -2,7 +2,7 @@ package com.wangyang.tinner_lib.common
 
 import android.view.animation.Animation
 
-interface TransAnimationListener :Animation.AnimationListener {
+interface TransAnimationListener : Animation.AnimationListener {
     override fun onAnimationRepeat(animation: Animation?) {
 
     }

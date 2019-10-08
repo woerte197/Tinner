@@ -10,6 +10,7 @@ import android.graphics.PorterDuffXfermode
 import android.graphics.RectF
 import android.support.v7.widget.AppCompatImageView
 import android.util.AttributeSet
+import android.view.MotionEvent
 import com.wangyang.baselibrary.R
 import org.jetbrains.anko.dimen
 
@@ -52,5 +53,9 @@ class RoundRectImageView @JvmOverloads constructor(context: Context, attrs: Attr
         paint.xfermode = null
         paramCanvas.drawBitmap(bitmap, 0.0f, 0.0f, paint)
         bitmap.recycle()
+    }
+
+    override fun onTouchEvent(event: MotionEvent?): Boolean {
+        return super.onTouchEvent(event)
     }
 }
