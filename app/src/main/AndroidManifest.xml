@@ -1,17 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools"
           package="com.wangyang.tinner">
+
     <uses-permission android:name="android.permission.SYSTEM_OVERLAY_WINDOW"/>
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+
     <application
             android:name=".MyApp"
-            tools:replace="android:name"
             android:allowBackup="true"
             android:icon="@mipmap/ic_launcher"
             android:label="@string/app_name"
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
-            android:theme="@style/AppTheme">
+            android:theme="@style/AppTheme"
+            tools:replace="android:name">
+        <activity android:name=".TEST.CallActivity">
+        </activity>
         <activity android:name=".TEST.TestActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -20,15 +25,20 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.MainActivity"/>
-        <provider android:authorities="com.wangyang.mybasemodule.test.studentProvider"
-                  android:name=".TEST.StudentContentProvider"
-                  android:process=":provider"
-                  android:permission="com.ryg.PROVIDER"/>
-        <service android:name=".IBookService"
-                 android:enabled="true"
-                 android:exported="true">
+
+        <provider
+                android:name=".TEST.StudentContentProvider"
+                android:authorities="com.wangyang.mybasemodule.test.studentProvider"
+                android:permission="com.ryg.PROVIDER"
+                android:process=":provider"/>
+
+        <service
+                android:name=".IBookService"
+                android:enabled="true"
+                android:exported="true">
             <intent-filter>
                 <action android:name="com.wangyang.book.action"/>
+
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </service>

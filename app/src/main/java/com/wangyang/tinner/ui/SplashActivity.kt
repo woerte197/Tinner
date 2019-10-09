@@ -23,13 +23,13 @@ class SplashActivity : TinnerActivity<SplashPresenter>(), SplashView {
         StartsBarUtil.setFullScreenWindowLayout(window)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
-        mSplashView.startCountdown()
-        mPresenter.loadImage(mBg)
-        mSplashView.setOnClickListener {
-            mPresenter.login()
-        }
-        mSplashView.listener = {
-            mPresenter.login()
-        }
+//        mSplashView.startCountdown()
+//        mPresenter.loadImage(mBg)
+//        mSplashView.setOnClickListener {
+//            mPresenter.login()
+//        }
+//        mSplashView.listener = {
+//            mPresenter.login()
+//        }
     }
 }

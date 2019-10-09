@@ -93,7 +93,6 @@ class PullDownScrollView @JvmOverloads constructor(
                         mIsShowImageView = true
                     }
                     Log.e("ACTION_MOVE", mOldY.toString())
-
                     if (mDY > mOldY) {
                         mTransY = String.format("%.2f", ((mDY - mOldY).toFloat() / 10)).toFloat()
                         var scrollY = String.format("%.2f", ((mDY - mOldY).toFloat() / 10)).toFloat()

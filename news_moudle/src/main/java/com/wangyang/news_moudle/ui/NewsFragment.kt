@@ -54,10 +54,7 @@ class NewsFragment : BaseMvpFragment<NewsPresenter>(), NewsView {
     }
 
 
-    class MyContentObserver(val handler: Handler?) : ContentObserver(handler) {
-        override fun onChange(selfChange: Boolean) {
-            super.onChange(selfChange)
-        }
+    class MyContentObserver(private val handler: Handler?) : ContentObserver(handler) {
 
         override fun onChange(selfChange: Boolean, uri: Uri?) {
             super.onChange(selfChange, uri)

@@ -9,7 +9,13 @@ import okhttp3.ResponseBody
 import java.io.File
 import java.util.*
 
-class MyClient constructor(private val url: String, private val params: WeakHashMap<String, Any>?, private val body: RequestBody?, val file: File?, private val files: List<File>?) {
+class MyClient constructor(
+    private val url: String,
+    private val params: WeakHashMap<String, Any>?,
+    private val body: RequestBody?,
+    val file: File?,
+    private val files: List<File>?
+) {
 
     companion object {
         fun builder(): MyClientBuilder {
@@ -110,11 +116,10 @@ class MyClient constructor(private val url: String, private val params: WeakHash
     }
 
     private fun initUploads(): Map<String, MultipartBody.Part> {
-        val size = files!!.size
         val partMap = HashMap<String, MultipartBody.Part>()
-        for (i in 0 until size) {
-            val body = RequestBody.create(MediaType.parse(MultipartBody.FORM.toString()), files[i])
-            val multipartBody = MultipartBody.Part.createFormData("file", files[i].name, body)
+        for (i in files!!) {
+            val body = RequestBody.create(MediaType.parse(MultipartBody.FORM.toString()), i)
+            val multipartBody = MultipartBody.Part.createFormData("file", i.name, body)
             partMap["image$i"] = multipartBody
         }
         return partMap
