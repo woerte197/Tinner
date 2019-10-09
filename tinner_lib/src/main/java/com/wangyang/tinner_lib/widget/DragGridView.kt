@@ -1,6 +1,7 @@
 package com.wangyang.tinner_lib.widget
 
 import android.content.Context
+import android.os.Build
 import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
@@ -19,10 +20,19 @@ class DragGridView @JvmOverloads constructor(
     private var mWindowY = 0f
     //windowManager
     private var mWindowManager: WindowManager? = null
-    //    当前View
+    //当前View
     private var currentView: View? = null
-//当前Position
+    //拖动的View
+    private var dragView: View? = null
+    //临时Position
+    private var tempPosition: Int = 0
+    //当前Position
     private var currentPosition: Int = 0
+
+    //view 的x 差值
+    private var mX: Float = 0f
+    //view 的y 差值
+    private var mY: Float = 0f
 
     companion object {
         private val MODE_DRAG = 1
@@ -91,11 +101,30 @@ class DragGridView @JvmOverloads constructor(
         }
 
         this.currentView = view
-
+        this.currentPosition = position
+        this.tempPosition = position
+        mX = mWindowX - view!!.left - this.left
+        mY = mWindowY - view!!.top - this.top
+        if (Build.VERSION.SDK_INT >= 23) {
+//            if (Settings.canDrawOverlays(context)) {
+            initWindow()
+//            } else {
+//                // 跳转到悬浮窗权限管理界面
+//                val intent = Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION)
+//                context.startActivity(intent)
+//            }
+        } else {
+            // 如果小于Android 6.0 则直接执行
+            initWindow()
+        }
 
 
 
         return true
+    }
+
+    private fun initWindow() {
+
     }
 
 }
