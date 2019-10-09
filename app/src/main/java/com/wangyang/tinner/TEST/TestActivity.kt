@@ -4,14 +4,10 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.os.Handler
 import android.os.Message
-import com.tencent.mm.opensdk.utils.Log
-import com.wangyang.baselibrary.ext.execute
-import com.wangyang.baselibrary.net.client.MyClient
-import com.wangyang.baselibrary.net.observable.BaseSubscribe
 import com.wangyang.baselibrary.ui.activity.BaseActivity
-import com.wangyang.tinner.R
+import com.wangyang.tinner_lib.widget.TestAdapter
 import kotlinx.android.synthetic.main.activity_splash.*
-import java.util.*
+
 
 class TestActivity : BaseActivity() {
     private val handler = object : Handler() {
@@ -20,10 +16,12 @@ class TestActivity : BaseActivity() {
         }
     }
 
+    private val list = mutableListOf("中国", "美国", "英国", "法国", "德国", "泰国", "韩国", "印度")
+
     @SuppressLint("SetTextI18n", "ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_splash)
+        setContentView(com.wangyang.tinner.R.layout.activity_splash)
 //        val fixedThreadPool = Executors.newFixedThreadPool(3)
 //        for (i in 0..9) {
 //            fixedThreadPool.execute {
@@ -58,8 +56,8 @@ class TestActivity : BaseActivity() {
 //            SystemClock.sleep(2000)
 //        }
 
-        mBg.setOnClickListener {
-            //            val button = Button(this)
+//        mBg.setOnClickListener {
+        //            val button = Button(this)
 //            button.text = "TEST"
 //            val layoutParams = WindowManager.LayoutParams(
 //                WindowManager.LayoutParams.WRAP_CONTENT,
@@ -105,17 +103,22 @@ class TestActivity : BaseActivity() {
 //                Log.e(localClassName, file?.path)
 //
 //            }
-            MyClient.builder()
-                .addUrl("http://img0.imgtn.bdimg.com/it/u=2490983391,2499689023&fm=26&gp=0.jpg")
-                .addParams(WeakHashMap())
-                .build()
-                .get()
-                .execute(object : BaseSubscribe<String>() {
-                    override fun onNext(t: String) {
-                        Log.e(localClassName, t)
-                    }
-                })
-        }
+//            MyClient.builder()
+//                .addUrl("http://img0.imgtn.bdimg.com/it/u=2490983391,2499689023&fm=26&gp=0.jpg")
+//                .addParams(WeakHashMap())
+//                .build()
+//                .get()
+//                .execute(object : BaseSubscribe<String>() {
+//                    override fun onNext(t: String) {
+//                        Log.e(localClassName, t)
+//                    }
+//                })
+
+
+//        }
+
+
+        mGridView.adapter =TestAdapter(this,list)
 
     }
 

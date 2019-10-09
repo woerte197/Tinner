@@ -61,7 +61,7 @@ private object OkHttpClientHolder {
         .readTimeout(60, TimeUnit.SECONDS)
         .build()
 
-    private fun addInterceptor(): OkHttpClient.Builder {Wwwww
+    private fun addInterceptor(): OkHttpClient.Builder {
         if (null != INTERCEPTOR_LIST) {
             for (interceptor in INTERCEPTOR_LIST as ArrayList<Interceptor>) {
                 BUILDER.addInterceptor(interceptor)
